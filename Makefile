@@ -2,13 +2,13 @@ NAME = fractol
 
 CC = cc
 
-INC=/usr/include
+INC = /usr/include
 
-INCLIB=/usr/lib
+INCLIB = /usr/lib
 
 LFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-CFLAGS= -I$(INC) -O3 -Imlx -g
+CFLAGS = -I$(INC) -O3 -Imlx -g
 
 HEADER = fractol.h
 
@@ -30,11 +30,7 @@ $(MLBX):
 	@make -C mlx
 
 norm:
-	norminette fractal_formula.c
-	norminette fractol.h
-	norminette hooks.c
-	norminette main.c
-	norminette prog_utils.c
+	norminette *.c & norminette *.h
 
 clean:
 			${RM} ${OBJS}
