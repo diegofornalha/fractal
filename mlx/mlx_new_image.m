@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:18:52 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 09:18:54 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 09:52:28 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,5 @@ int     mlx_destroy_image(mlx_ptr_t *mlx_ptr, mlx_img_list_t *img_todel)
   free(img_todel->buffer);
   free(img_todel);
 
-  //  printf("destroy image done.\n");
   return (0);
 }

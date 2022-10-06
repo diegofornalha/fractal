@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:12:24 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 09:16:00 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 10:02:20 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -641,7 +641,6 @@ int     mlx_do_key_autorepeaton(mlx_ptr_t *mlx_ptr)
     }
   return (0);
 }
-
 
 int     mlx_destroy_window(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_to_del)
 {
