@@ -1,4 +1,14 @@
-// mlx_opengl.m
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_opengl.m                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/06 09:09:04 by dida-sil          #+#    #+#             */
+/*   Updated: 2022/10/06 09:09:14 by dida-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #import <Cocoa/Cocoa.h>
 #import <OpenGL/gl3.h>
@@ -9,10 +19,6 @@
 #include "mlx_int.h"
 #include "mlx_new_window.h"
 
-
-
-
-
 NSOpenGLPixelFormatAttribute pfa_attrs_opengl[] =
   {
     NSOpenGLPFADepthSize, 32,
@@ -20,8 +26,6 @@ NSOpenGLPixelFormatAttribute pfa_attrs_opengl[] =
     NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion4_1Core,
     0
   };
-
-
 
 void	*mlx_new_opengl_window(mlx_ptr_t *mlx_ptr, int size_x, int size_y, char *title)
 {

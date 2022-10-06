@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_mouse.m                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/06 09:18:48 by dida-sil          #+#    #+#             */
+/*   Updated: 2022/10/06 09:18:49 by dida-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include	<stdio.h>
 
 #import <Cocoa/Cocoa.h>
@@ -8,14 +20,12 @@
 
 int	mlx_mouse_hide()
 {
-  //  CGDisplayHideCursor(kCGDirectMainDisplay);
   [NSCursor hide];
   return (0);
 }
 
 int	mlx_mouse_show()
 {
-  //  CGDisplayShowCursor(kCGDirectMainDisplay);
   [NSCursor unhide];
   return (0);
 }

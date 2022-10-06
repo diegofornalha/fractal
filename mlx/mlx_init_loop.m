@@ -1,5 +1,14 @@
-//  mlx_init_loop.m
-// By Ol
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_init_loop.m                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/06 09:09:53 by dida-sil          #+#    #+#             */
+/*   Updated: 2022/10/06 09:16:04 by dida-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #import <Cocoa/Cocoa.h>
 #import <OpenGL/gl3.h>
@@ -15,7 +24,6 @@ void	do_loop_hook2(CFRunLoopTimerRef observer, void * info)
 {
   ((mlx_ptr_t *)info)->loop_hook(((mlx_ptr_t *)info)->loop_hook_data);
 }
-
 
 void do_loop_flush(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void * info)
 {
@@ -37,9 +45,6 @@ void do_loop_flush(CFRunLoopObserverRef observer, CFRunLoopActivity activity, vo
     }
 }
 
-
-
-
 void *mlx_init()
 {
   mlx_ptr_t	*new_mlx;
@@ -56,7 +61,6 @@ void *mlx_init()
 
   new_mlx->appid = [NSApplication sharedApplication];
 
-  // super magic trick to detach app from terminal, get menubar & key input events
   for (NSRunningApplication * app in [NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.finder"])
     {
       [app activateWithOptions:NSApplicationActivateIgnoringOtherApps];
@@ -68,7 +72,6 @@ void *mlx_init()
   usleep(100000);
   [[NSRunningApplication currentApplication] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
 
-  // load font
   new_mlx->font = mlx_new_image(new_mlx, (FONT_WIDTH+2)*95, FONT_HEIGHT);
   i = 0;
   while (i < 4*(FONT_WIDTH+2)*95*FONT_HEIGHT)
@@ -79,7 +82,6 @@ void *mlx_init()
       ((unsigned char *)new_mlx->font->buffer)[i+3] = 0xFF-font_atlas.pixel_data[i+3];
       i += 4;
     }
-
 
 #ifdef	STRINGPUTX11
   new_mlx->font->vertexes[2] = FONT_WIDTH/1.4;
@@ -96,7 +98,6 @@ void *mlx_init()
   return ((void *)new_mlx);
 }
 
-
 void mlx_loop(mlx_ptr_t *mlx_ptr)
 {
   CFRunLoopObserverRef observer;
@@ -107,11 +108,8 @@ void mlx_loop(mlx_ptr_t *mlx_ptr)
   observer = CFRunLoopObserverCreate(NULL, kCFRunLoopBeforeTimers, true, 0, do_loop_flush, &ocontext);
   CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
 
-  //  [[[MlxLoopHookObj alloc] initWithPtr:mlx_ptr] performSelector:@selector(do_loop_hook) withObject:nil afterDelay:0.0];
-
   [NSApp run];
 }
-
 
 void mlx_pixel_put(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_ptr, int x, int y, int color)
 {

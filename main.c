@@ -6,11 +6,26 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:03:36 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 07:41:05 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 09:06:03 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int	main(int argc, char **argv)
+{
+	t_vars	vars;
+
+	check_args(argc, argv, &vars); 
+	init_data(&vars); 
+	vars.mlx = mlx_init(); 
+	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "Fractol");
+	draw_fractal(&vars); 
+	mlx_key_hook(vars.win, key_hook, &vars); 
+	mlx_mouse_hook(vars.win, zoom_mouse, &vars);
+	mlx_loop(vars.mlx);
+	return (0);
+}
 
 void	paint_fractal(t_vars *vars)
 {
@@ -65,19 +80,4 @@ void	init_data(t_vars *vars)
 	vars->move_x = -0.1;
 	vars->move_y = 0;
 	vars->max = 50;
-}
-
-int	main(int argc, char **argv)
-{
-	t_vars	vars;
-
-	check_args(argc, argv, &vars);
-	init_data(&vars);
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "Fractol");
-	draw_fractal(&vars);
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_mouse_hook(vars.win, zoom_mouse, &vars);
-	mlx_loop(vars.mlx);
-	return (0);
 }

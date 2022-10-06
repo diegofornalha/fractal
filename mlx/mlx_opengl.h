@@ -1,21 +1,17 @@
-/*
-**
-** mlx_opengl.h 
-**
-** public include, use it after mlx.h
-** designed only for minilibx_macos
-**
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_opengl.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/06 09:12:01 by dida-sil          #+#    #+#             */
+/*   Updated: 2022/10/06 09:12:13 by dida-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void    *mlx_new_opengl_window(void *mlx_ptr, int size_x, int size_y, char *title);
 
-/* create an opengl window. put_image & pixel_put & string_put do not work there. */
-
 int	mlx_opengl_swap_buffers(void *win_ptr);
 
-/* the created window is double buffered. Use this funct to swap buffers */
-/* this funct will call glFlush(). Don't call it. */
-
 int	mlx_opengl_window_set_context(void *win_ptr);
-
-/* in case multiple opengl windows are present, change opengl active context */
