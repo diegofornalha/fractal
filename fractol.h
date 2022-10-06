@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:00:47 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 10:27:34 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:25:56 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ typedef struct s_vars
 	double	move_x;
 	double	move_y;
 	int		max;
+	double	z_re;
+	double 	z_im;
+	double 	tmp;
 }				t_vars;
 
 # define WIDTH 500

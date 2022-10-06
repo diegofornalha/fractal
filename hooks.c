@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:03:32 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 09:41:02 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:25:57 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	key_hook(int key, t_vars *vars)
 {
-	printf("%f\n", vars->zoom);
 	if (key == DOWN)
 		vars->move_y += 0.3 * vars->zoom;
 	else if (key == UP)

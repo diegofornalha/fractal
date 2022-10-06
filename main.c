@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:03:36 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 10:29:06 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:25:59 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	paint_fractal(t_vars *vars)
 	int		b;
 
 	t = (double)vars->iter / (double)vars->max;
-	r = (int)(7 * (1 - t) * t * t * t * 255);
-	g = (int)(20 * (1 - t) * (1 - t) * t * t * 255);
-	b = (int)(3 * (1 - t) * (1 - t) * (1 - t) * t * 255);
-	pixel_put(vars, vars->line, vars->column, create_rgb(r, g, b));
+	r = 9 * (1 - t) * pow(t, 3) * 255;
+	g = 15 * pow((1 - t), 2) * pow(t, 2) * 255;
+	b = 8.5 * pow((1 - t), 3) * t * 255;
+	pixel_put(vars, vars->line, vars->column, create_rgb(b, r, g));
 }
 
 void	draw_fractal(t_vars *vars)
@@ -53,8 +53,8 @@ void	draw_fractal(t_vars *vars)
 void	choose_fractol(t_vars *vars)
 {
 if (!ft_strncmp(vars->arg, "1", 5) || !ft_strncmp(vars->arg, \
-	"Mandelbrot", 15) || !ft_strncmp(vars->arg, "mandelbrot", 15))
-		draw_mandelbrot(vars);
+	"mandelbrot", 15) || !ft_strncmp(vars->arg, "mandelbrot", 15))
+	draw_mandelbrot(vars);
 }
 
 void	init_data(t_vars *vars)

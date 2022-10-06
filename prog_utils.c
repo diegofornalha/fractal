@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:11:48 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 10:28:52 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:25:58 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_args(int argc, char **argv, t_vars *vars)
 	if (argc != 2)
 	{
 		puts("Usage: ./fractol [fractal name]\n");
-		puts("Available fractals: Mandelbrot\n");
+		puts("Available fractals: Mandelbrot, mandelbrot\n");
 		exit(0);
 	}
 	else
