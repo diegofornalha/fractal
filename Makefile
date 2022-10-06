@@ -1,22 +1,36 @@
-NAME = fractol
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/06 13:18:43 by dida-sil          #+#    #+#              #
+#    Updated: 2022/10/06 13:22:48 by dida-sil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CC = cc
+NAME	= fractol
 
-INC = /usr/include
+CC		= cc
 
-INCLIB = /usr/lib
+INC		= /usr/include
 
-LFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+INCLIB	= /usr/lib
 
-CFLAGS = -I$(INC) -O3 -Imlx -g
+LFLAGS	= -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-HEADER = fractol.h
+CFLAGS	= -I$(INC) -O3 -Imlx -g
 
-SRCS = main.c prog_utils.c hooks.c fractal_formula.c
+HEADER	= fractol.h
 
-RM = rm -f
+SRCS	= main.c prog_utils.c hooks.c fractal_formula.c
 
-OBJS = $(SRCS:%.c=%.o)
+RM 		= rm -f
+
+OBJS	= $(SRCS:%.c=%.o)
+
+MLBX 	= mlx/libmlx.a
 
 %.o: %.c $(HEADER)
 	$(CC) -Wall -Wextra -Werror -c $< -o $@
@@ -33,11 +47,12 @@ norm:
 	norminette *.c & norminette *.h
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} 
+			@make clean -C mlx
 
 fclean:		clean
 			${RM} ${NAME}
 
-re:			clean all
+re:			fclean all
 
 .PHONY:		all clean fclean re

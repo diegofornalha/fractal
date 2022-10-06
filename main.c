@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:03:36 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 11:25:59 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:31:12 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	paint_fractal(t_vars *vars)
 	r = 9 * (1 - t) * pow(t, 3) * 255;
 	g = 15 * pow((1 - t), 2) * pow(t, 2) * 255;
 	b = 8.5 * pow((1 - t), 3) * t * 255;
-	pixel_put(vars, vars->line, vars->column, create_rgb(b, r, g));
+	pixel_put(vars, vars->line, vars->column, create_rgb(b, g, r));
 }
 
 void	draw_fractal(t_vars *vars)

@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:00:47 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 11:25:56 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 16:05:17 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,20 @@ typedef struct s_vars
 	double 	tmp;
 }				t_vars;
 
-# define WIDTH 500
-# define HEIGHT 500
-# define UP 126
+# define WIDTH 900
+# define HEIGHT 900
+# define UP	126
 # define DOWN 125
 # define LEFT 123
 # define RIGHT 124 
 # define ESC 53
-# define SCROLL_IN 5
-# define SCROLL_OUT 4
+# define SCROLL_IN 4
+# define SCROLL_OUT 5
 # define STEP 700
 # define STEP_Z 0.5
 # define UP_PREC 0
 # define DOWN_PREC 2
+
 # define JU_RE -0.70176 
 # define JU_IM -0.384
 

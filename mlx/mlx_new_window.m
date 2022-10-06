@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:12:24 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 10:02:20 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/06 17:37:38 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,11 @@ int get_mouse_button(NSEventType eventtype)
   return (self);
 }
 
-
 - (void) setEvent:(int)event andFunc:(func_t)func andParam:(void *)param
 {
   event_funct[event] = func;
   event_param[event] = param;
-  if (event == 6 || event == 32) // motion notify && high precision motion notify
+  if (event == 6 || event == 32)
     {
       if (func == NULL)
 	[self setAcceptsMouseMovedEvents:NO];
@@ -233,7 +232,6 @@ int get_mouse_button(NSEventType eventtype)
   if (event_funct[6] != NULL)
     event_funct[6]((int)(thepoint.x), size_y - 1 - (int)(thepoint.y), event_param[6]);
 }
-
 
 - (void) otherMouseDragged:(NSEvent *)theEvent
 {
@@ -413,7 +411,6 @@ int get_mouse_button(NSEventType eventtype)
   return (win);
 }
 
-
 - (void) pixelPutColor: (int)color X:(int)x Y:(int)y
 {
   pixel_nb ++;
@@ -439,12 +436,11 @@ int get_mouse_button(NSEventType eventtype)
   glDeleteShader(glsl.image_fshader);
 }
 
-
 - (void) destroyMe
 {
   [[NSNotificationCenter defaultCenter] removeObserver:win];
   [[NSNotificationCenter defaultCenter] removeObserver:self];
-
+  // [ctx release];
   [win close];
   [self release];
 }
@@ -486,7 +482,7 @@ int get_mouse_button(NSEventType eventtype)
   glEnableVertexAttribArray(0);
 
   glEnable(GL_BLEND);
-  glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);
+  glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);  // src alpha 0xFF : keep dst
   glBlendEquation(GL_FUNC_ADD);
 
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
@@ -523,13 +519,14 @@ int get_mouse_button(NSEventType eventtype)
   glEnableVertexAttribArray(0);
 
   glEnable(GL_BLEND);
-  glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);
+  glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);  // src alpha 0xFF : keep dst
   glBlendEquation(GL_FUNC_ADD);
 
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
   glDisableVertexAttribArray(0);
 
 }
+
 
 - (void) mlx_gl_draw
 {
@@ -547,7 +544,7 @@ int get_mouse_button(NSEventType eventtype)
   glEnableVertexAttribArray(0);
 
   glEnable(GL_BLEND);
-  glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);
+  glBlendFunc(GL_ONE_MINUS_SRC_ALPHA, GL_SRC_ALPHA);  // src alpha 0xFF : keep dst
   glBlendEquation(GL_FUNC_ADD);
 
   glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
@@ -561,7 +558,7 @@ int get_mouse_button(NSEventType eventtype)
 }
 
 @end
-
+ 
 void *mlx_new_window(mlx_ptr_t *mlx_ptr, int size_x, int size_y, char *title)
 {
   mlx_win_list_t	*newwin;
