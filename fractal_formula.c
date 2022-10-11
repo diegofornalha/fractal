@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:00:30 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/11 18:18:01 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:23:05 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ void	draw_mandelbrot(t_vars *vars)
 	}
 	paint_fractal(vars);
 }
-
-# define JU_RE -0.789 
-# define JU_IM -0.345
 
 void	draw_julia(t_vars *vars)
 {
