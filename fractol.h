@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:00:47 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/11 17:50:29 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:15:30 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ typedef struct s_vars
 # define STEP_Z 0.5
 # define UP_PREC 0
 # define DOWN_PREC 2
-
-# define JU_RE -0.70176 
-# define JU_IM -0.384
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	check_args(int argc, char **argv, t_vars *vars);
