@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:03:36 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 18:31:12 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:45:47 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,14 @@ void	draw_fractal(t_vars *vars)
 
 void	choose_fractol(t_vars *vars)
 {
-if (!ft_strncmp(vars->arg, "1", 5) || !ft_strncmp(vars->arg, \
-	"mandelbrot", 15) || !ft_strncmp(vars->arg, "mandelbrot", 15))
-	draw_mandelbrot(vars);
+	if (!ft_strncmp(vars->arg, "Julia", 6) || !ft_strncmp(vars->arg, "2", 5) \
+	|| !ft_strncmp(vars->arg, "julia", 6))
+		draw_julia(vars);
+	else if (!ft_strncmp(vars->arg, "1", 5) || !ft_strncmp(vars->arg, \
+	"Mandelbrot", 15) || !ft_strncmp(vars->arg, "mandelbrot", 15))
+		draw_mandelbrot(vars);
 }
+
 
 void	init_data(t_vars *vars)
 {

@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:00:47 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 16:05:17 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:50:29 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	check_args(int argc, char **argv, t_vars *vars);
 int		key_hook(int key, t_vars *vars);
 void	pixel_put(t_vars *vars, int x, int y, int color);
 void	draw_mandelbrot(t_vars *vars);
+void	draw_julia(t_vars *vars);
 void	init_data(t_vars *vars);
 int		create_rgb(int r, int g, int b);
 int		zoom_mouse(int button, int x, int y, t_vars *vars);

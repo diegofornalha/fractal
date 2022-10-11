@@ -6,7 +6,7 @@
 /*   By: dida-sil <dida-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 07:00:30 by dida-sil          #+#    #+#             */
-/*   Updated: 2022/10/06 18:31:57 by dida-sil         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:48:08 by dida-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,23 @@ void	draw_mandelbrot(t_vars *vars)
 		vars->z_re = vars->z_re * vars->z_re - vars->z_im * vars->z_im + \
 		vars->c_re;
 		vars->z_im = 2 * vars->z_im * vars->tmp + vars->c_im;
+		vars->iter++;
+	}
+	paint_fractal(vars);
+}
+
+
+void	draw_julia(t_vars *vars)
+{
+	vars->x = vars->c_re;
+	vars->y = vars->c_im;
+	vars->iter = 0;
+	while ((pow(vars->x, 2.0) + pow(vars->y, 2.0) <= 4) \
+	&& vars->iter < vars->max)
+	{
+		vars->x_new = pow(vars->x, 2.0) - pow(vars->y, 2.0) + JU_RE;
+		vars->y = 2.0 * vars->x * vars->y + JU_IM;
+		vars->x = vars->x_new;
 		vars->iter++;
 	}
 	paint_fractal(vars);
